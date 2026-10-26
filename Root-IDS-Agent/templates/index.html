@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>RootIDS - Painel de Monitorização</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 20px; }
+        .container { max-width: 700px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin: auto; }
+        h1 { color: #333; text-align: center; }
+        form { margin-bottom: 20px; display: flex; gap: 10px; }
+        input[type="text"] { flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; }
+        button { padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+        .results { background: #e9ecef; padding: 15px; border-radius: 4px; white-space: pre-wrap; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RootIDS - Inspecionar Dispositivo/Rede</h1>
+        <form method="post" action="/scan">
+            <input type="text" name="target_ip" placeholder="Ex: 192.168.1.100 ou 192.168.1.0/24" value="{{ target_ip }}" required>
+            <button type="submit">Verificar Estado</button>
+        </form>
+        
+        {% if result %}
+            <h3>Resultado para: {{ target_ip }}</h3>
+            <div class="results">{{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
