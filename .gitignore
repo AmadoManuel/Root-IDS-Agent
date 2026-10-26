@@ -1,0 +1,27 @@
+@"
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# IDEs e editores
+.vs/
+.vscode/
+.idea/
+
+# Configurações e segredos
+.env
+.env.*
+!.env.example
+
+# Logs e bases de dados locais
+logs/
+*.log
+*.sqlite3
+*.db
+
+# Sistema operativo
+Thumbs.db
+Desktop.ini
+"@ | Set-Content -Encoding utf8 .gitignore
